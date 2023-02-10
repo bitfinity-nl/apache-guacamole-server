@@ -4,7 +4,7 @@
 # Author: Bitfinity / L. Rutten
 # Owner: Bitfinity / L. Rutten
 #
-# File: tasks/dockers/01-apache-guacamole.yml
+# File: tasks/dockers/01-docker.yml
 #
 # Description:
 #   Apache Guacamole is a clientless remote desktop gateway.
