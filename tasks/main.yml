@@ -10,3 +10,8 @@
 #   Apache Guacamole is a clientless remote desktop gateway.
 #   It supports standard protocols like VNC, RDP, and SSH.
 # 
+- name: "Include docker/01-docker.yml"
+  include_tasks: docker/01-docker.yml
+
+- name: "Include docker/02-guacamole.yml"
+  include_tasks: docker/02-guacamole.yml
