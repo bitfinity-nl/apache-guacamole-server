@@ -14,3 +14,13 @@
 # Source(s):
 #   - https://www.howtoforge.com/how-to-install-apache-guacamole-as-docker-container-on-ubuntu/
 #
+
+- name: "Download Docker Apache Guacamole server"
+  community.docker.docker_image:
+    name: guacamole/guacd:latest
+    source: pull
+
+- name: "Download Docker Apache Guacamole client"
+    community.docker.docker_image:
+    name: guacamole/guacamole:latest
+    source: pull
