@@ -24,8 +24,6 @@
     - include: handlers/main.yml
   
   roles:
-    - role-automatic-updates
-    - role-certbot-apache2
     - role-apache-guacamole-gateway
   
   tasks:
