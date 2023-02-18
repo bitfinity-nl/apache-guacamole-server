@@ -1,0 +1,30 @@
+---
+# Title: requirements playbook
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: requirements.yml
+#
+# Description:
+#   This requirements file contains
+#   the roles for this playbook.
+#
+- hosts: localhost
+  connection: local
+  become: true
+  
+  tasks:
+    - name: "Create Ansible directory structure"
+      file:
+        name: /etc/ansible/roles/
+        state: directory
+    
+    - name: "Retrieve Ansible role from https://github.com/bitfinity-nl/role-certbot-apache2.git GIT"
+      git:
+        repo: "https://github.com/bitfinity-nl/role-certbot-apache2.git"
+        dest: "/etc/ansible/roles/role-certbot-apache2"
+        version: main
+
+
+        
