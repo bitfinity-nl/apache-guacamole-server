@@ -20,8 +20,8 @@
         name: /etc/ansible/roles/
         state: directory
     
-    - name: "Retrieve Ansible role from https://github.com/bitfinity-nl/role-automatic-updates GIT"
+    - name: "Retrieve Ansible role from https://github.com/bitfinity-nl/role-certbot-apache2.git GIT"
       git:
-        repo: "https://github.com/bitfinity-nl/role-automatic-updates.git"
-        dest: "/etc/ansible/roles/role-automatic-updates"
+        repo: "https://github.com/bitfinity-nl/role-apache-guacamole-gateway.git"
+        dest: "/etc/ansible/roles/role-apache-guacamole-gateway"
         version: main
