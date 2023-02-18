@@ -1,0 +1,35 @@
+<VirtualHost *:80>
+
+  ServerName {{ guac_apache2_domain }}
+  Redirect permanent / https://{{ guac_apache2_domain }}/
+
+</VirtualHost>
+
+<VirtualHost *:443>
+
+  ServerName {{ guac_apache2_domain }}
+  ProxyPreserveHost Off
+
+  SSLEngine on
+  SSLProtocol all -SSLv2 -SSLv3
+  SSLProxyEngine On
+  SSLCertificateFile {{ guac_apache2_cert_file }}
+  SSLCertificateKeyFile {{ guac_apache2_cert_keyfile }}
+#  SSLCipherSuite ALL:!DH:!EXPORT:!RC4:+HIGH:+MEDIUM:!LOW:!aNULL:!eNULL
+
+  <Location />
+      Order allow,deny
+      Allow from all
+      ProxyPass http://localhost:8080/guacamole/ max=20 flushpackets=on
+      ProxyPassReverse http://localhost:8080/guacamole/
+      SetEnvIf Request_URI "^/guacamole/tunnel" dontlog
+  </Location>
+  <Location /websocket-tunnel>
+      Order allow,deny
+      Allow from all
+      ProxyPass ws://localhost:8080/guacamole/websocket-tunnel
+      ProxyPassReverse ws://localhost:8080/guacamole/websocket-tunnel
+  </Location>
+
+</VirtualHost>
+CustomLog /var/log/apache2/guac.log common env=!dontlog
