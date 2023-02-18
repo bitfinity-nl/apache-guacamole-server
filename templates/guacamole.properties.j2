@@ -1,0 +1,4 @@
+# -- LDAP Extended configuration --
+#ldap-user-search-filter: (&(objectClass=*)(memberof={{ guacd_ldap_user_search_filter }}))
+#ldap-user-search-filter: (&(objectClass=*)(memberof=CN=GRP-Guacamole,OU=example,DC=contoso,DC=local))
+#ldap-user-search-filter: (&(objectCategory=person)(objectclass=user)(sAMAccountName=*))
