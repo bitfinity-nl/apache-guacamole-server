@@ -8,3 +8,5 @@ Source(s):
 - https://www.howtoforge.com/how-to-install-apache-guacamole-as-docker-container-on-ubuntu/
 - https://guacamole.apache.org/doc/gug/configuring-guacamole.html#parameter-tokens
 - https://github.com/nitnelave/lldap/blob/main/example_configs/apacheguacamole.md
+- https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/docker-mysql-getting-started.html
+- https://hub.docker.com/_/mysql
