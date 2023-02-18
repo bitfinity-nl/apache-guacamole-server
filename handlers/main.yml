@@ -10,3 +10,14 @@
 #   Apache Guacamole is a clientless remote desktop gateway.
 #   It supports standard protocols like VNC, RDP, and SSH.
 # 
+- name: "restart_apache2"
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+    name: apache2
+    
+- name: "reload_apache2"
+  systemd:
+    daemon_reload: yes
+    name: apache2
