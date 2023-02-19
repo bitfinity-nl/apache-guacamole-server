@@ -2,6 +2,17 @@
 Apache Guacamole is a clientless remote desktop gateway.
 It supports standard protocols like VNC, RDP, and SSH.
 
+## Troubleshooting
+
+- Show docker logs of Apache Guacamole server: ``docker logs guacd --follow``
+- Show docker logs of Apache Guacamole client: ``docker logs guacamole --follow``
+
+### Error messages
+
+Error: LDAP Result Code 8 “Strong Auth Required”: BindSimple: Transport encryption required
+\
+Resolution: https://community.nethserver.org/t/ldap-result-code-8-strong-auth-required-bindsimple-transport-encryption-required/13376
+
 ## Source(s):
 - https://guacamole.apache.org/
 - https://guacamole.apache.org/doc/gug/ldap-auth.html#preparing-your-ldap-directory-optional
