@@ -36,3 +36,7 @@ guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ certbot_servernam
 # -- MySQL Database server --
 mysql_administrative_password      : ''
 mysql_database_pass                : ''
+
+# -- Guacamole Branding --
+guac_branding_title                : 'guacamole.example.com'
+
