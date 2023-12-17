@@ -21,3 +21,4 @@ Resolution: https://community.nethserver.org/t/ldap-result-code-8-strong-auth-re
 - https://github.com/nitnelave/lldap/blob/main/example_configs/apacheguacamole.md
 - https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/docker-mysql-getting-started.html
 - https://hub.docker.com/_/mysql
+- https://github.com/Zer0CoolX/guacamole-customize-loginscreen-extension
