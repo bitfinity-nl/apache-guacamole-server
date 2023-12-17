@@ -1,12 +1,12 @@
 .login-ui .login-dialog .logo {
         background-image: url('app/ext/tempnamespace/images/logo-placeholder.png');
-        width: 9em;
+        width: 9;
         -webkit-background-size: 9em auto;
 }
 div.login-ui {
-        background: #666;
-        background-color: #666;
+        background: {{ guac_branding_login_ui_bg }};
+        background-color: {{ guac_branding_login_ui_bg_color }};
 }
 .login-ui .login-dialog {
-        background-color: white;
+        background-color: {{ guac_branding_login_ui_bg_dialog }};
 }
