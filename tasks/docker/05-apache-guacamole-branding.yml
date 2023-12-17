@@ -9,4 +9,22 @@
 # Description:
 #   Apache Guacamole is a clientless remote desktop gateway.
 #   It supports standard protocols like VNC, RDP, and SSH.
-# 
+#
+- name: "Install APT packages"
+  apt:
+    pkg:
+    - unzip
+    - zip
+
+- name: "Create /opt/guacamole/tmp/ directory for (re)building branding.jar"
+  ansible.builtin.file:
+    path: /opt/guacamole/tmp/
+    state: directory
+
+- name: "Download Extension branding.jar and unarchive in folder /opt/guacamole/tmp/"    
+  ansible.builtin.unarchive:
+    src: https://raw.githubusercontent.com/Zer0CoolX/guacamole-customize-loginscreen-extension/master/branding.jar
+    dest: /opt/guacamole/tmp/
+    remote_src: yes
+    
+#- name: ""
