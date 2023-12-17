@@ -16,15 +16,15 @@
     - unzip
     - zip
 
-- name: "Create /opt/guacamole/tmp/ directory for (re)building branding.jar"
+- name: "Create /opt/guacamole/tmp/branding/ directory for (re)building branding.jar"
   ansible.builtin.file:
-    path: /opt/guacamole/tmp/
+    path: /opt/guacamole/tmp/branding/
     state: directory
 
 - name: "Download Extension branding.jar and unarchive in folder /opt/guacamole/tmp/"    
   ansible.builtin.unarchive:
     src: https://raw.githubusercontent.com/Zer0CoolX/guacamole-customize-loginscreen-extension/master/branding.jar
-    dest: /opt/guacamole/tmp/
+    dest: /opt/guacamole/tmp/branding/
     remote_src: yes
     
 #- name: ""
