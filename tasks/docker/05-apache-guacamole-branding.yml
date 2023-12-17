@@ -21,10 +21,20 @@
     path: /opt/guacamole/tmp/branding/
     state: directory
 
-- name: "Download Extension branding.jar and unarchive in folder /opt/guacamole/tmp/"    
+- name: "Download Extension branding.jar and unarchive in folder /opt/guacamole/tmp/branding/"    
   ansible.builtin.unarchive:
     src: https://raw.githubusercontent.com/Zer0CoolX/guacamole-customize-loginscreen-extension/master/branding.jar
     dest: /opt/guacamole/tmp/branding/
     remote_src: yes
     
-#- name: ""
+- name: "Transfer templates to branding directory /opt/guacamole/tmp/branding/"
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    backup: false
+    force: true
+  with_items:
+    - { src: 'templates/branding/en.json.j2', dest: 'tmp/branding/translations/en.json' }
+    - { src: 'templates/branding/login-override.css.j2', dest: 'tmp/branding/css/login-override.css' }
+
+- name: ""
