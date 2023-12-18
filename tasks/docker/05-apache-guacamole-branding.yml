@@ -42,6 +42,7 @@
   ansible.builtin.get_url:
     url: "{{ guac_branding_bg_image_url }}"
     dest: /opt/guacamole/tmp/branding/images/logo-placeholder.png
+  when: guac_branding_bg_image_url|length > 0
 
 - name: "Zip files to extension /opt/guacamole/extensions/branding.jar"
   community.general.archive:
