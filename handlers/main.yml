@@ -21,3 +21,8 @@
   systemd:
     daemon_reload: yes
     name: apache2
+
+- name: "restart_docker_container_guacamole"
+  community.docker.docker_container:
+    name: guacamole
+    restart: true
