@@ -32,7 +32,7 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     backup: false
-    #force: true
+    force: true
   with_items:
     - { src: 'templates/branding/en.json.j2', dest: '/opt/guacamole/tmp/branding/translations/en.json' }
     - { src: 'templates/branding/login-override.css.j2', dest: '/opt/guacamole/tmp/branding/css/login-override.css' }
