@@ -38,6 +38,17 @@ mysql_administrative_password      : ''
 mysql_database_pass                : ''
 
 # -- Guacamole Branding --
+#
+# Variable(s):
+#   guac_branding_title                : 'guacamole.example.com'
+#   guac_branding_bg_image_url         : ''
+#   guac_branding_login_ui_bg          : '#666'
+#   guac_branding_login_ui_bg_color    : '#666'
+#   guac_branding_login_ui_bg_dialog   : 'white'
+#
+# Comments:
+#   max. imagesize 103x123
+#
 guac_branding_title                : 'guacamole.example.com'
 guac_branding_bg_image_url         : ''
 guac_branding_login_ui_bg          : '#666'
