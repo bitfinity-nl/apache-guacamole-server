@@ -47,3 +47,8 @@
     path: /opt/guacamole/tmp/branding/*
     dest: /opt/guacamole/extensions/branding.jar
     format: zip
+
+- name: "Restart docker container guacamole"
+  community.docker.docker_container:
+    name: guacamole
+    restart: true
