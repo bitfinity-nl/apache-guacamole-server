@@ -24,8 +24,7 @@
     - proxy_http
     - rewrite
     - ssl
- # notify: restart_apache2
-
+    
 - name: "Transfer templates"
   ansible.builtin.template:
     src: "{{ item.src }}"
