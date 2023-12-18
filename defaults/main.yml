@@ -50,7 +50,7 @@ mysql_database_pass                : ''
 #   max. imagesize 103x123
 #
 guac_branding_title                : 'guacamole'
-guac_branding_bg_image_url         : 'https://multibat.nl/img/multibat-logo-1559118893.jpg'
+guac_branding_bg_image_url         : 'https://www.bitfinity.nl/assets/img/Bitfinity_22_103x123.png'
 guac_branding_login_ui_bg          : '#666'
 guac_branding_login_ui_bg_color    : '#666'
 guac_branding_login_ui_bg_dialog   : 'white'
