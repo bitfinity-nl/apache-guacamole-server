@@ -1,12 +1,20 @@
 ---
-# Title: Apache Guacamole Server
-#
-# Author: Bitfinity / L. Rutten
-# Owner: Bitfinity / L. Rutten
-#
-# File: tasks/main.yml
-#
-# Description:
-#   Apache Guacamole is a clientless remote desktop gateway.
-#   It supports standard protocols like VNC, RDP, and SSH.
-# 
+dependencies: []
+
+galaxy_info:
+  role_name: role-apache-guacamole-gateway
+  author: Bitfinity / L. Rutten
+  description: Apache Guacamole Gateway on Ubuntu via Docker
+  company: "Bitfinity"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.10
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - ubuntu
+    - RDP
+    - VNC
+    - SSH
+
