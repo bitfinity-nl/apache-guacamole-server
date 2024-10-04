@@ -16,17 +16,17 @@
 #    - docker.io
 #    - python3-docker
 
-- name: "Pull Docker image Server"
+- name: "Pull Docker image Server on host {{ ansible_hostname }}"
   docker_image:
     name:  guacamole/guacd:latest
     source: pull
 
-- name: "Pull Docker image Client"
+- name: "Pull Docker image Client on host {{ ansible_hostname }}"
   docker_image:
     name:  guacamole/guacamole:latest
     source: pull
 
-- name: "Start container, server guacd"
+- name: "Start container, server guacd on host {{ ansible_hostname }}"
   docker_container:
     name: guacd
     image: guacamole/guacd
@@ -45,16 +45,16 @@
     - /opt/guacamole/extensions
     - /opt/guacamole/lib
 
-- name: "Check if initialization script exists"
+- name: "Check if initialization script exists on host {{ ansible_hostname }}"
   stat:
     path: /opt/docker/guacamole/mysql/01-initdb.sql
   register: stat_result
 
-- name: "Create directory for Apache Guacamole /opt/docker/guacamole/mysql"
+- name: "Create directory for Apache Guacamole /opt/docker/guacamole/mysql on host {{ ansible_hostname }}"
   file:
     path: /opt/docker/guacamole/mysql
     state: directory
     
-- name: "Generate MySQL initialization script"
+- name: "Generate MySQL initialization script on host {{ ansible_hostname }}"
   raw: docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --mysql > /opt/docker/guacamole/mysql/01-initdb.sql
   when: not stat_result.stat.exists
