@@ -10,11 +10,9 @@
 #   remote desktop gateway server.
 #
 
-# -- Custom settings: role-certbot-apache2 --
-certbot_servername                 : 'guacamole.example.com'
-certbot_serveralias                : 'guacamole.example.com'
-certbot_serveradmin                : 'support@example.com'
-certbot_documentroot               : '/var/www/html'
+# -- MySQL Database server --
+mysql_administrative_password      : 'Password123'
+mysql_database_pass                : 'Password123'
 
 # -- Apache Guacamole Client --
 guacd_ldap_hostname                : '192.168.0.5'
@@ -26,16 +24,13 @@ guacd_ldap_group_search_filter     : '(&(objectClass=*)(memberof=CN=ras_guacamol
 guacd_search_bind_dn               : 'CN=svc_guacamole2,OU=Service Accounts,OU=example,DC=example,DC=lan'
 guacd_search_bind_password         : ''
 guacd_ldap_username_attribute      : 'sAMAccountName'
+guac_mysql_database_pass           : '{{ mysql_database_pass }}'
 
 # -- Apache2 Webserver (Reverse Proxy) --
 guac_apache2_application_name      : 'guacamole'
-guac_apache2_domain                : '{{ certbot_servername }}'
-guac_apache2_cert_file             : '/etc/letsencrypt/live/{{ certbot_servername }}/fullchain.pem'
-guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ certbot_servername }}/privkey.pem'
-
-# -- MySQL Database server --
-mysql_administrative_password      : ''
-mysql_database_pass                : ''
+guac_apache2_domain                : 'guacamole.example.com'
+guac_apache2_cert_file             : '/etc/letsencrypt/live/{{ guac_apache2_domain }}/fullchain.pem'
+guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ guac_apache2_domain }}/privkey.pem'
 
 # -- Guacamole Branding --
 #
