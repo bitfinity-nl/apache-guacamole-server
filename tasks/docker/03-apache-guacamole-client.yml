@@ -13,53 +13,53 @@
 - name: "Default IP for client guacd"
   debug: var=ansible_default_ipv4.address
 
-- name: "Create directory structure /opt/ansible/guacamole/ for docker-compose.yml file on host {{ ansible_hostname }}"
-  ansible.builtin.file:
-    path: /opt/ansible/docker/guacamole/
-    owner: root
-    group: root
-    mode: '0750'
-    state: directory
+#- name: "Create directory structure /opt/ansible/guacamole/ for docker-compose.yml file on host {{ ansible_hostname }}"
+#  ansible.builtin.file:
+#    path: /opt/ansible/docker/guacamole/
+#    owner: root
+#    group: root
+#    mode: '0750'
+#    state: directory
 
-- name: "Transfer templates to Apache Guacamole server"
-  ansible.builtin.template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    mode: '0750'
-    backup: yes
-  with_items:
-    - { src: 'templates/docker/docker-compose.yml.j2', dest: '/opt/ansible/docker/guacamole/docker-compose.yml' }
+#- name: "Transfer templates to Apache Guacamole server"
+#  ansible.builtin.template:
+#    src: "{{ item.src }}"
+#    dest: "{{ item.dest }}"
+#    owner: root
+#    group: root
+#    mode: '0750'
+#    backup: yes
+#  with_items:
+#    - { src: 'templates/docker/docker-compose.yml.j2', dest: '/opt/ansible/docker/guacamole/docker-compose.yml' }
       
-#- name: "Start container, client guacd "
-#  docker_container:
-#    name: guacamole
-#    image: guacamole/guacamole
-#    state: started
-#    restart: yes
-#    restart_policy: always
-#    links:
-#      - "guacd:guacd"
-#      - "guacamoledb:mysql"
-#    ports:
-#      - "8080:8080"
-#    volumes:
-#      - /opt/guacamole:/etc/guacamole
-#    env:
-#      GUACAMOLE_HOME: "/etc/guacamole"
-#      GUACD_HOSTNAME: "{{ ansible_default_ipv4.address }}"
-#      GUACD_PORT: "4822"
-#      LDAP_HOSTNAME: "{{ guacd_ldap_hostname }}"
-#      LDAP_PORT: "{{ guacd_ldap_port }}"
-#      LDAP_USER_BASE_DN: "{{ guacd_ldap_user_base_dn }}"
-#      LDAP_USER_SEARCH_FILTER: "{{ guacd_ldap_user_search_filter }}" 
-#      LDAP_GROUP_BASE_DN: "{{ guacd_ldap_group_base_dn }}"
-#      LDAP_GROUP_SEARCH_FILTER: "{{ guacd_ldap_group_search_filter }}"
-#      LDAP_SEARCH_BIND_DN: "{{ guacd_search_bind_dn }}"
-#      LDAP_SEARCH_BIND_PASSWORD: "{{ guacd_search_bind_password }}"
-#      LDAP_USERNAME_ATTRIBUTE: "{{ guacd_ldap_username_attribute }}"
-#      MYSQL_DATABASE: "guacamoledb"
-#      MYSQL_USER: "guacamoledb"
-#      MYSQL_PASSWORD: "{{ mysql_database_pass }}"
+- name: "Start container, client guacd "
+  docker_container:
+    name: guacamole
+    image: guacamole/guacamole
+    state: started
+    restart: yes
+    restart_policy: always
+    links:
+      - "guacd:guacd"
+      - "guacamoledb:mysql"
+    ports:
+      - "8080:8080"
+    volumes:
+      - /opt/guacamole:/etc/guacamole
+    env:
+      GUACAMOLE_HOME: "/etc/guacamole"
+      GUACD_HOSTNAME: "{{ ansible_default_ipv4.address }}"
+      GUACD_PORT: "4822"
+      LDAP_HOSTNAME: "{{ guacd_ldap_hostname }}"
+      LDAP_PORT: "{{ guacd_ldap_port }}"
+      LDAP_USER_BASE_DN: "{{ guacd_ldap_user_base_dn }}"
+      LDAP_USER_SEARCH_FILTER: "{{ guacd_ldap_user_search_filter }}" 
+      LDAP_GROUP_BASE_DN: "{{ guacd_ldap_group_base_dn }}"
+      LDAP_GROUP_SEARCH_FILTER: "{{ guacd_ldap_group_search_filter }}"
+      LDAP_SEARCH_BIND_DN: "{{ guacd_search_bind_dn }}"
+      LDAP_SEARCH_BIND_PASSWORD: "{{ guacd_search_bind_password }}"
+      LDAP_USERNAME_ATTRIBUTE: "{{ guacd_ldap_username_attribute }}"
+      MYSQL_DATABASE: "guacamoledb"
+      MYSQL_USER: "guacamoledb"
+      MYSQL_PASSWORD: "{{ mysql_database_pass }}"
       #TOTP_ENABLED: "true"
