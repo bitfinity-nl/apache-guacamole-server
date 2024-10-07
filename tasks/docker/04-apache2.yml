@@ -37,7 +37,7 @@
   with_items:
     - 000-default.conf
     - default-ssl.conf 
-    - 000-default-le-ssl.conf
+    #- 000-default-le-ssl.conf
   notify:
     - restart_apache2
 
