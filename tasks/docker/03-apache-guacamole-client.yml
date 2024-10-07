@@ -13,16 +13,16 @@
 - name: "Default IP for client guacd"
   debug: var=ansible_default_ipv4.address
 
-#- name: "Transfer templates to Apache Guacamole server"
-#  ansible.builtin.template:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#    owner: root
-#    group: root
-#    mode: '0777'
-    #backup: yes
-#  with_items:
-#    - { src: 'templates/guacamole.properties.j2', dest: '/opt/guacamole/guacamole.properties'}
+- name: "Transfer templates to Apache Guacamole server"
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0777'
+    backup: yes
+  with_items:
+    - { src: 'templates/guacamole.properties.j2', dest: '/opt/guacamole/guacamole.properties'}
       
 - name: "Start container, client guacd "
   docker_container:
