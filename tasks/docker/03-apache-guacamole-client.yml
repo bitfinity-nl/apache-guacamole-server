@@ -13,16 +13,23 @@
 - name: "Default IP for client guacd"
   debug: var=ansible_default_ipv4.address
 
+- name: "Create directory structure /opt/ansible/guacamole/ for docker-compose.yml file on host {{ ansible_hostname }}"
+  ansible.builtin.template:
+    path: /opt/ansible/guacamole/
+    owner: root
+    group: root
+    mode: '0750'
+    state: directory
+
 - name: "Transfer templates to Apache Guacamole server"
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     owner: root
     group: root
-    mode: '0777'
+    mode: '0750'
     backup: yes
   with_items:
-    #- { src: 'templates/guacamole.properties.j2', dest: '/opt/guacamole/guacamole.properties'}
     - { src: 'templates/docker/docker-compose.yml.j2', dest: '/opt/ansible/guacamole/docker-compose.yml' }
       
 #- name: "Start container, client guacd "
