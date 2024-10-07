@@ -10,10 +10,10 @@
 #   Apache Guacamole is a clientless remote desktop gateway.
 #   It supports standard protocols like VNC, RDP, and SSH.
 #  
-- name: "Default IP for client guacd"
+- name: "Default IP for client guacamole"
   debug: var=ansible_default_ipv4.address
 
-- name: "Start container, client guacd "
+- name: "Start container, client guacamole"
   docker_container:
     name: guacamole
     image: guacamole/guacamole
