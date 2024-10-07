@@ -14,7 +14,7 @@
   debug: var=ansible_default_ipv4.address
 
 - name: "Create directory structure /opt/ansible/guacamole/ for docker-compose.yml file on host {{ ansible_hostname }}"
-  ansible.builtin.template:
+  ansible.builtin.file:
     path: /opt/ansible/guacamole/
     owner: root
     group: root
