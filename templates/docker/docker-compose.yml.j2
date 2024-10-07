@@ -3,6 +3,9 @@ services:
     image: guacamole/guacamole
     container_name: guacamole
     restart: unless-stopped
+    links:
+      - "guacd:guacd"
+      - "guacamoledb:mysql"
     ports:
       - "8080:8080"
     volumes:
