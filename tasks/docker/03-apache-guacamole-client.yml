@@ -23,7 +23,7 @@
     backup: yes
   with_items:
     #- { src: 'templates/guacamole.properties.j2', dest: '/opt/guacamole/guacamole.properties'}
-    - { src: 'templates/docker/docker-compose.yml.j2', dest: '/opt/ansible/docker/' }
+    - { src: 'templates/docker/docker-compose.yml.j2', dest: '/opt/ansible/guacamole/docker-compose.yml' }
       
 #- name: "Start container, client guacd "
 #  docker_container:
