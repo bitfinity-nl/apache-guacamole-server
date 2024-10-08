@@ -22,5 +22,5 @@
 - name: "Include tasks/04-apache2.yml"
   include_tasks: docker/2404/04-apache2.yml
 
-#- name: "Include tasks/05-apache-guacamole-branding.yml"
-#  include_tasks: docker/2404/05-apache-guacamole-branding.yml
+- name: "Include tasks/05-apache-guacamole-branding.yml"
+  include_tasks: docker/2404/05-apache-guacamole-branding.yml
