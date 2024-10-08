@@ -1,4 +1,12 @@
 services:
+  guacd:
+    image: guacamole/guacd
+    state: started
+    restart: yes
+    restart_policy: always
+  ports:
+    - "4822:4822"
+
   guacamole:
     image: guacamole/guacamole
     container_name: guacamole
