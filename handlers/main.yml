@@ -26,4 +26,4 @@
   community.docker.docker_container:
     name: guacamole
     restart: true
-    container_default_behavior: compatibility
+    #container_default_behavior: compatibility
