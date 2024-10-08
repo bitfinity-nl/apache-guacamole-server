@@ -1,0 +1,39 @@
+---
+# Title: Apache Guacamole Server
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: tasks/dockers/2404/02-mysql-server.yml
+#
+# Description:
+#   Apache Guacamole is a clientless remote desktop gateway.
+#   It supports standard protocols like VNC, RDP, and SSH.
+#
+- name: "Install APT packages"
+  ansible.builtin.apt:
+    pkg:
+    - docker.io
+    - python3-docker
+
+- name: "Pull Docker image MySQL Server"
+  docker_image:
+    name:  mysql/mysql-server:latest
+    source: pull
+
+- name: "Start docker MySQL database server"
+  docker_container:
+    name: guacamoledb
+    image: mysql/mysql-server
+    state: started
+    restart: yes
+    restart_policy: always
+    ports:
+      - "3306:3306"
+    volumes:
+      -  /opt/docker/guacamole/mysql/:/docker-entrypoint-initdb.d
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ mysql_administrative_password }}"
+      MYSQL_DATABASE: "guacamoledb"
+      MYSQL_USER: "guacamoledb"
+      MYSQL_PASSWORD: "{{ mysql_database_pass }}"
