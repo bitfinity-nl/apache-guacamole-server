@@ -26,15 +26,15 @@
     name:  guacamole/guacamole:latest
     source: pull
 
-#- name: "Start container, server guacd on host {{ ansible_hostname }}"
-#  docker_container:
-#    name: guacd
-#    image: guacamole/guacd
-#    state: started
-#    restart: yes
-#    restart_policy: always
-#    ports:
-#      - "4822:4822"
+- name: "Start container, server guacd on host {{ ansible_hostname }}"
+  docker_container:
+    name: guacd
+    image: guacamole/guacd
+    state: started
+    restart: yes
+    restart_policy: always
+    ports:
+      - "4822:4822"
 
 - name: "Create configuration directory for Apache Guacamole outside docker"
   ansible.builtin.file:
