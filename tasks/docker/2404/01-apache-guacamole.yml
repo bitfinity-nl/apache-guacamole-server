@@ -1,0 +1,60 @@
+---
+# Title: Apache Guacamole Server
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: tasks/dockers/2404/01-apache-guacamole.yml
+#
+# Description:
+#   Apache Guacamole is a clientless remote desktop gateway.
+#   It supports standard protocols like VNC, RDP, and SSH.
+# 
+- name: "Install APT packages"
+  ansible.builtin.apt:
+    pkg:
+    - docker.io
+    - python3-docker
+
+- name: "Pull Docker image Server"
+  docker_image:
+    name:  guacamole/guacd:latest
+    source: pull
+
+- name: "Pull Docker image Client"
+  docker_image:
+    name:  guacamole/guacamole:latest
+    source: pull
+
+- name: "Start container, server guacd"
+  docker_container:
+    name: guacd
+    image: guacamole/guacd
+    state: started
+    restart: yes
+    restart_policy: always
+    ports:
+      - "4822:4822"
+
+- name: "Create configuration directory for Apache Guacamole outside docker"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+ #   mode: '0640'
+  with_items:
+    - /opt/guacamole/extensions
+    - /opt/guacamole/lib
+
+- name: "Check if initialization script exists"
+  stat:
+    path: /opt/docker/guacamole/mysql/01-initdb.sql
+  register: stat_result
+
+- name: "Create directory for Apache Guacamole /opt/docker/guacamole/mysql"
+  file:
+    path: /opt/docker/guacamole/mysql
+    state: directory
+    
+- name: "Generate MySQL initialization script"
+  raw: docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --mysql > /opt/docker/guacamole/mysql/01-initdb.sql
+  when: not stat_result.stat.exists
