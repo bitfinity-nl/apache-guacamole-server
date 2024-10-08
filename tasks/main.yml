@@ -11,16 +11,16 @@
 #   It supports standard protocols like VNC, RDP, and SSH.
 # 
 - name: "Include tasks/01-apache-guacamole.yml"
-  include_tasks: docker/01-apache-guacamole.yml   
+  include_tasks: docker/2404/01-apache-guacamole.yml   
     
 - name: "Include tasks/02-mysql-server.yml"
-  include_tasks: docker/02-mysql-server.yml 
+  include_tasks: docker/2404/02-mysql-server.yml 
       
 - name: "Include tasks/03-apache-guacamole-client.yml"
-  include_tasks: docker/03-apache-guacamole-client.yml 
+  include_tasks: docker/2404/03-apache-guacamole-client.yml 
       
 - name: "Include tasks/04-apache2.yml"
-  include_tasks: docker/04-apache2.yml
+  include_tasks: docker/2404/04-apache2.yml
 
 - name: "Include tasks/05-apache-guacamole-branding.yml"
-  include_tasks: docker/05-apache-guacamole-branding.yml
+  include_tasks: docker/2404/05-apache-guacamole-branding.yml
