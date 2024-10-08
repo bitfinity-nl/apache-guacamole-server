@@ -13,7 +13,7 @@
 - name: "Default IP for client guacamole"
   debug: var=ansible_default_ipv4.address
 
-- name: "Start container, client guacamole"
+- name: "Start container, client guacd "
   docker_container:
     name: guacamole
     image: guacamole/guacamole
@@ -40,7 +40,7 @@
       LDAP_SEARCH_BIND_DN: "{{ guacd_search_bind_dn }}"
       LDAP_SEARCH_BIND_PASSWORD: "{{ guacd_search_bind_password }}"
       LDAP_USERNAME_ATTRIBUTE: "{{ guacd_ldap_username_attribute }}"
-      MYSQL_DATABASE: "guacamole_db"
-      MYSQL_USER: "guacamole_db"
+      MYSQL_DATABASE: "guacamoledb"
+      MYSQL_USER: "guacamoledb"
       MYSQL_PASSWORD: "{{ mysql_database_pass }}"
       TOTP_ENABLED: "true"
