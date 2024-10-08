@@ -43,4 +43,4 @@
       MYSQL_DATABASE: "guacamoledb"
       MYSQL_USER: "guacamoledb"
       MYSQL_PASSWORD: "{{ mysql_database_pass }}"
-      #TOTP_ENABLED: "true"
+      TOTP_ENABLED: "true"
