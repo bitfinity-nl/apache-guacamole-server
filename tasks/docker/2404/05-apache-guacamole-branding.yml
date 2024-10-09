@@ -38,13 +38,13 @@
     - { src: 'templates/branding/login-override.css.j2', dest: '/opt/guacamole/tmp/branding/css/login-override.css' }
   notify: restart_docker_container_guacamole
 
-- name: "Download login image from {{ guac_branding_bg_image_url }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
+- name: "Download login image from URL {{ guac_branding_bg_image_url }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
   ansible.builtin.get_url:
     url: "{{ guac_branding_bg_image_url }}"
     dest: /opt/guacamole/tmp/branding/images/logo-placeholder.png
   when: guac_branding_bg_image_url|length > 0
 
-- name: "Download login image from {{ guac_branding_bg_image_path }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
+- name: "Download login image from Ansible playbook {{ guac_branding_bg_image_path }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
   ansible.builtin.copy:
     url: "{{ guac_branding_bg_image_path }}"
     dest: /opt/guacamole/tmp/branding/images/logo-placeholder.png
