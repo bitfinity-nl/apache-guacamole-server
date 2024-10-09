@@ -1,0 +1,28 @@
+/* Logo */
+.login-ui .login-dialog .logo {
+        background-image: url('app/ext/tempnamespace/images/logo-placeholder.png');
+        width: 235Px;
+        height: 55Px;
+        background-size: 235px 55px;
+        -moz-background-size: 235px 55px;
+        -webkit-background-size: 235px 55px;
+        -khtml-background-size: 235px 55px;
+}
+
+/* Background */
+div.login-ui {
+        /*background: {{ guac_branding_login_ui_bg }};
+        background-color: {{ guac_branding_login_ui_bg_color }};*/
+        background-image: URL(<span class="tr_" id="tr_0" data-source="" data-orig="'https://www.windowslatest.com/wp-content/uploads/2024/05/Bloom-wallpaper-OLED-696x435.jpg'">'RUTA.jpg'</span>);background-size:cover;
+}
+/* Centerbox */
+.login-ui .login-dialog {
+        background-color: {{ guac_branding_login_ui_bg_dialog }};
+}
+
+/* Username and password field */
+.login-ui section .login-fields .labeled-field.empty {
+    background: white;
+}
+
+/* Button */
