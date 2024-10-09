@@ -10,7 +10,7 @@
 #   Apache Guacamole is a clientless remote desktop gateway.
 #   It supports standard protocols like VNC, RDP, and SSH.
 #
-- name: "Install APT packages on host {{ ansible_hostname ))"
+- name: "Install APT packages on host {{ ansible_hostname }}"
   ansible.builtin.apt:
     pkg:
     - unzip
