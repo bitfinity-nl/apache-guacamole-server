@@ -10,24 +10,24 @@
 #   Apache Guacamole is a clientless remote desktop gateway.
 #   It supports standard protocols like VNC, RDP, and SSH.
 #
-- name: "Install APT packages"
-  apt:
+- name: "Install APT packages on host {{ ansible_host ))"
+  ansible.builtin.apt:
     pkg:
     - unzip
     - zip
 
-- name: "Create /opt/guacamole/tmp/branding/ directory for (re)building branding.jar"
+- name: "Create /opt/guacamole/tmp/branding/ directory for (re)building branding.jar on host {{ ansible_host ))"
   ansible.builtin.file:
     path: /opt/guacamole/tmp/branding/
     state: directory
 
-- name: "Download extension branding.jar and unarchive in folder /opt/guacamole/tmp/branding/"    
+- name: "Download extension branding.jar and unarchive in folder /opt/guacamole/tmp/branding/ on host {{ ansible_host ))"    
   ansible.builtin.unarchive:
     src: https://raw.githubusercontent.com/Zer0CoolX/guacamole-customize-loginscreen-extension/master/branding.jar
     dest: /opt/guacamole/tmp/branding/
     remote_src: yes
     
-- name: "Transfer templates to branding directory /opt/guacamole/tmp/branding/"
+- name: "Transfer templates to branding directory /opt/guacamole/tmp/branding/ on host {{ ansible_host ))"
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -38,13 +38,19 @@
     - { src: 'templates/branding/login-override.css.j2', dest: '/opt/guacamole/tmp/branding/css/login-override.css' }
   notify: restart_docker_container_guacamole
 
-- name: "Download login image to /opt/guacamole/tmp/branding"
+- name: "Download login image from {{ guac_branding_bg_image_url }} to /opt/guacamole/tmp/branding on host {{ ansible_host ))"
   ansible.builtin.get_url:
     url: "{{ guac_branding_bg_image_url }}"
     dest: /opt/guacamole/tmp/branding/images/logo-placeholder.png
-  when: guac_branding_bg_image_url|length > 0
+  when: guac_branding_bg_image_url|length > 0 and 
 
-- name: "Zip files to extension /opt/guacamole/extensions/branding.jar"
+- name: "Download login image from {{ guac_branding_bg_image_path }} to /opt/guacamole/tmp/branding on host {{ ansible_host ))"
+  ansible.builtin.copy:
+    url: "{{ guac_branding_bg_image_path }}"
+    dest: /opt/guacamole/tmp/branding/images/logo-placeholder.png
+  when: guac_branding_bg_image_path|length > 0
+  
+- name: "Zip files to extension /opt/guacamole/extensions/branding.jar on host {{ ansible_host ))"
   community.general.archive:
     path: /opt/guacamole/tmp/branding/*
     dest: /opt/guacamole/extensions/branding.jar
