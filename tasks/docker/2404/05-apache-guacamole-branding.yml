@@ -21,13 +21,13 @@
     path: /opt/guacamole/tmp/branding/
     state: directory
 
-- name: "Download extension branding.jar and unarchive in folder /opt/guacamole/tmp/branding/ on host  {{ ansible_hostname }}"    
+- name: "Download extension branding.jar and unarchive in folder /opt/guacamole/tmp/branding/ on host {{ ansible_hostname }}"    
   ansible.builtin.unarchive:
     src: https://raw.githubusercontent.com/Zer0CoolX/guacamole-customize-loginscreen-extension/master/branding.jar
     dest: /opt/guacamole/tmp/branding/
     remote_src: yes
     
-- name: "Transfer templates to branding directory /opt/guacamole/tmp/branding/ on host  {{ ansible_hostname }}"
+- name: "Transfer templates to branding directory /opt/guacamole/tmp/branding/ on host {{ ansible_hostname }}"
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -35,6 +35,7 @@
     force: true
   with_items:
     - { src: 'templates/branding/en.json.j2', dest: '/opt/guacamole/tmp/branding/translations/en.json' }
+    - { src: 'templates/branding/guac-manifest.json.j2', dest: '/opt/guacamole/tmp/branding/guac-manifest.json' }
     - { src: 'templates/branding/login-override.css.j2', dest: '/opt/guacamole/tmp/branding/css/login-override.css' }
   notify: restart_docker_container_guacamole
 
@@ -56,7 +57,7 @@
     dest: /opt/guacamole/tmp/branding/images/wallpaper.jpg
   #when: guac_branding_bg_image_path|length > 0
   
-- name: "Zip files to extension /opt/guacamole/extensions/branding.jar on host  {{ ansible_hostname }}"
+- name: "Zip files to extension /opt/guacamole/extensions/branding.jar on host {{ ansible_hostname }}"
   community.general.archive:
     path: /opt/guacamole/tmp/branding/*
     dest: /opt/guacamole/extensions/branding.jar
