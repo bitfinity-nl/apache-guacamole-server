@@ -62,3 +62,8 @@
     path: /opt/guacamole/tmp/branding/*
     dest: /opt/guacamole/extensions/branding.jar
     format: zip
+
+- name: "Remove temporary branding /opt/guacamole/tmp/branding/ directory on host {{ ansible_hostname }}"
+  ansible.builtin.file:
+    path: /opt/guacamole/tmp/branding/
+    state: absent
