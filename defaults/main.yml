@@ -46,6 +46,9 @@ guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ guac_apache2_doma
 #   guac_branding_login_centerbox_bg_color   : 'rgba(0,0,0,0.2)'                    #
 #   guac_branding_login_ui_bg_dialog         : 'white'                   # Background color for the login dialog.
 #   guac_branding_login_input_field_bg_color : 'white'                   # Set color for the login input fields.
+#   guac_branding_login_input_normal_color   : '#3C3C3C'                 # Set color for the login button.
+#   guac_branding_login_input_hover_color    : '#88bf57'                 # Set color for the login button when hover.
+#   guac_branding_login_input_submit_color   : '#d7dc43'                 # Set color for the login button when pressed.
 #
 # Comments:
 #   max. imagesize 103x123
