@@ -36,8 +36,10 @@ guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ guac_apache2_doma
 #
 # Variable(s):
 #   guac_branding_title                : 'guacamole.example.com'   # Title of the application.
-#   guac_branding_bg_image_url         : ''                        # URL to image on webserver (if empty, this wil be skipped).
-#   guac_branding_bg_image_path        : ''                        # Path to image in the Ansible playbook (if empty, this wil be skipped).
+#   guac_branding_logo_image_url       : ''                        # URL to logo image on webserver (if empty, this wil be skipped).
+#   guac_branding_logo_image_path      : ''                        # Path to logo image in the Ansible playbook (if empty, this wil be skipped).
+#   guac_branding_logo_image_url       : ''                        # URL to wallpaper image on webserver (if empty, this wil be skipped).
+#   guac_branding_wallpaper_image_path : ''                        # Path to wallpaper image in the Ansible playbook (if empty, this wil be skipped).
 #   guac_branding_login_ui_bg          : '#666'                    # background color for the loging page.
 #   guac_branding_login_ui_bg_color    : '#666'                    #
 #   guac_branding_login_ui_bg_dialog   : 'white'                   # Background color for the login dialog.
@@ -46,8 +48,10 @@ guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ guac_apache2_doma
 #   max. imagesize 103x123
 #
 guac_branding_title                : 'guacamole'
-guac_branding_bg_image_url         : ''
-guac_branding_bg_image_path        : ''
+guac_branding_logo_image_url       : ''
+guac_branding_logo_image_path      : ''
+guac_branding_logo_image_url       : ''
+guac_branding_wallpaper_image_path : ''
 guac_branding_login_ui_bg          : '#666'
 guac_branding_login_ui_bg_color    : '#666'
 guac_branding_login_ui_bg_dialog   : 'white'
