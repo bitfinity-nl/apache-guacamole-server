@@ -40,12 +40,12 @@ input[type="submit"], button, a.button {
 
 /* -- hover -- */
 input[type="submit"]:hover, button:hover, a.button:hover {
-    background-color: guac_branding_login_input_hover_color;
+    background-color: {{ guac_branding_login_input_hover_color }};
     border: 1px solid rgba(0,145,255,1.0);
 }
 
 /* -- onclick -- */
 input[type="submit"]:active, button:active, a.button:active {
-    background-color: guac_branding_login_input_submit_color;
+    background-color: {{ guac_branding_login_input_submit_color }};
     border: 1px solid rgba(255,95,0,1.0);
 }
