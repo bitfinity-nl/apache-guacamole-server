@@ -1,7 +1,12 @@
 .login-ui .login-dialog .logo {
         background-image: url('app/ext/tempnamespace/images/logo-placeholder.png');
         width: 9;
-        -webkit-background-size: 9em auto;
+        width: {{ guac_branding_logo_width }};
+        height: {{ guac_branding_logo_height }};
+        background-size: {{ guac_branding_logo_width }} {{ guac_branding_logo_height }};
+        -moz-background-size: {{ guac_branding_logo_width }} {{ guac_branding_logo_height }};
+        -webkit-background-size: {{ guac_branding_logo_width }} {{ guac_branding_logo_height }};
+        -khtml-background-size: {{ guac_branding_logo_width }} {{ guac_branding_logo_height }};
 }
 div.login-ui {
         background: {{ guac_branding_login_ui_bg }};
