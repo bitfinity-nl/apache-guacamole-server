@@ -29,6 +29,7 @@ div.login-ui {
 }
 
 /* -- submit button -- */
-input section[type=”submit”], button, a.button {
-        background-color: {{ guac_branding_login_input_submit_color }};
+input[type="submit"]:active, button:active, a.button:active {
+    background-color: {{ guac_branding_login_input_submit_color }};
+    border: 1px solid rgba(255,95,0,1.0);
 }
