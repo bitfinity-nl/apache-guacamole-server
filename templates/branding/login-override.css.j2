@@ -29,7 +29,23 @@ div.login-ui {
 }
 
 /* -- submit button -- */
-input[type="submit"]:active, button:active, a.button:active {
+/* -- normal -- */
+input[type="submit"], button, a.button {
     background-color: {{ guac_branding_login_input_submit_color }};
+    border: 1px solid rgba(0,255,145,1.1);
+    font-size: 1em;
+    font-weight: bold;
+    font-family: Raleway, FreeSans, Helvetica, Arial, sans-serif;
+}
+
+/* -- hover -- */
+input[type="submit"]:hover, button:hover, a.button:hover {
+    background-color: rgba(0,255,145,1.0);
+    border: 1px solid rgba(0,145,255,1.0);
+}
+
+/* -- onclick -- */
+input[type="submit"]:active, button:active, a.button:active {
+    background-color: rgba(0,145,255,1.0);
     border: 1px solid rgba(255,95,0,1.0);
 }
