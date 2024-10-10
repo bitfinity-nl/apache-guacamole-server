@@ -56,7 +56,12 @@
     src: "{{ guac_branding_wallpaper_image_path }}"
     dest: /opt/guacamole/tmp/branding/images/wallpaper.png
   when: guac_branding_wallpaper_image_path|length > 0
-  
+
+- name: "Remove current branding file /opt/guacamole/extensions/branding.jar on host {{ ansible_hostname }}"
+  ansible.builtin.file:
+    path: /opt/guacamole/extensions/branding.jar
+    state: absent
+    
 - name: "Zip files to extension /opt/guacamole/extensions/branding.jar on host {{ ansible_hostname }}"
   community.general.archive:
     path: /opt/guacamole/tmp/branding/*
