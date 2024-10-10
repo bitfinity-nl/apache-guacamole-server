@@ -60,6 +60,6 @@ guac_branding_wallpaper_image_path       : ''
 guac_branding_login_ui_bg                : '#666'
 guac_branding_login_centerbox_bg_color   : 'rgba(0,0,0,0.2)'
 guac_branding_login_ui_bg_dialog         : 'white'
-guac_branding_login_input_field_bg_color : ''
+guac_branding_login_input_field_bg_color : 'white'
 
 
