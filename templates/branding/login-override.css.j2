@@ -1,3 +1,12 @@
+/* -- Background --
+div.login-ui {
+        background: {{ guac_branding_login_ui_bg }};
+        background-color: {{ guac_branding_login_ui_bg_color }};
+        background-image: url('app/ext/tempnamespace/images/wallpaper.png');
+        background-size:cover;
+}
+
+/* -- Logo -- */
 .login-ui .login-dialog .logo {
         background-image: url('app/ext/tempnamespace/images/logo-placeholder.png');
         width: 9;
@@ -8,12 +17,8 @@
         -webkit-background-size: {{ guac_branding_logo_width }} {{ guac_branding_logo_height }};
         -khtml-background-size: {{ guac_branding_logo_width }} {{ guac_branding_logo_height }};
 }
-div.login-ui {
-        background: {{ guac_branding_login_ui_bg }};
-        background-color: {{ guac_branding_login_ui_bg_color }};
-        background-image: url('app/ext/tempnamespace/images/wallpaper.png');
-        background-size:cover;
-}
+
+/* -- Center Box --
 .login-ui .login-dialog {
-        background-color: {{ guac_branding_login_ui_bg_dialog }};
+        background-color: {{ guac_branding_login_centerbox_bg_color }};
 }
