@@ -39,29 +39,29 @@
     - { src: 'templates/branding/login-override.css.j2', dest: '/opt/guacamole/tmp/branding/css/login-override.css' }
   notify: restart_docker_container_guacamole
 
-- name: "Download favicon small login image from URL {{ guac_branding_favicon_64x64_url }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
+- name: "Download favicon small login image from URL {{ guac_branding_favicon_small_url }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
   ansible.builtin.get_url:
-    url: "{{ guac_branding_favicon_64x64_url }}"
-    dest: /opt/guacamole/tmp/branding/images/logo-64.png
-  when: guac_branding_favicon_64x64_url|length > 0
+    url: "{{ guac_branding_favicon_small_url }}"
+    dest: /opt/guacamole/tmp/branding/images/favicon-small.png
+  when: guac_branding_favicon_small_url|length > 0
 
-- name: "Download favicon small image from Ansible playbook {{ guac_branding_favicon_64x64_path }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
+- name: "Download favicon small image from Ansible playbook {{ guac_branding_favicon_small_path }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
   ansible.builtin.copy:
-    src: "{{ guac_branding_favicon_64x64_path }}"
-    dest: /opt/guacamole/tmp/branding/images/logo-64.png
-  when: guac_branding_favicon_64x64_path|length > 0
+    src: "{{ guac_branding_favicon_small_path }}"
+    dest: /opt/guacamole/tmp/branding/images/favicon-small.png
+  when: guac_branding_favicon_small_path|length > 0
 
-- name: "Download favicon big from URL {{ guac_branding_favicon_144x144_url }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
+- name: "Download favicon large from URL {{ guac_branding_favicon_large_url }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
   ansible.builtin.get_url:
-    url: "{{ guac_branding_favicon_144x144_url }}"
-    dest: /opt/guacamole/tmp/branding/images/logo-144.png
-  when: guac_branding_favicon_144x144_url|length > 0
+    url: "{{ guac_branding_favicon_large_url }}"
+    dest: /opt/guacamole/tmp/branding/images/favicon-large.png
+  when: guac_branding_favicon_large_url|length > 0
 
-- name: "Download favicon big image from Ansible playbook {{ guac_branding_favicon_144x144_path }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
+- name: "Download favicon large image from Ansible playbook {{ guac_branding_favicon_large_path }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
   ansible.builtin.copy:
-    src: "{{ guac_branding_favicon_144x144_path }}"
-    dest: /opt/guacamole/tmp/branding/images/logo-144.png
-  when: guac_branding_favicon_144x144_path|length > 0
+    src: "{{ guac_branding_favicon_large_path }}"
+    dest: /opt/guacamole/tmp/branding/images/favicon-large.png
+  when: guac_branding_favicon_large_path|length > 0
 
 - name: "Download login image from URL {{ guac_branding_bg_image_url }} to /opt/guacamole/tmp/branding on host  {{ ansible_hostname }}"
   ansible.builtin.get_url:
