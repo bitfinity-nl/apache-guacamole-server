@@ -36,6 +36,10 @@ guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ guac_apache2_doma
 #
 # Variable(s):
 #   guac_branding_title                      : 'guacamole.example.com'   # Title of the application.
+#   guac_branding_favicon_64x64_url          : ''                        # URL to small favicon image on webserver 64px(if empty, this wil be skipped).
+#   guac_branding_favicon_64x64_path         : ''                        # Path to small favicon image in the Ansible playbook (if empty, this wil be skipped).
+#   guac_branding_favicon_144x144_url        : ''                        # Path to big favicon image in the Ansible playbook (if empty, this wil be skipped).
+#   guac_branding_favicon_144x144_path       : ''                        # Path to big favicon image in the Ansible playbook (if empty, this wil be skipped).
 #   guac_branding_logo_image_url             : ''                        # URL to logo image on webserver (if empty, this wil be skipped).
 #   guac_branding_logo_image_path            : ''                        # Path to logo image in the Ansible playbook (if empty, this wil be skipped).
 #   guac_branding_logo_width                 : '50px'                    # Width of logo image size.
@@ -54,6 +58,10 @@ guac_apache2_cert_keyfile          : '/etc/letsencrypt/live/{{ guac_apache2_doma
 #   max. imagesize 103x123
 #
 guac_branding_title                      : 'guacamole'
+guac_branding_favicon_64x64_url          : ''
+guac_branding_favicon_64x64_path         : ''
+guac_branding_favicon_144x144_url        : ''
+guac_branding_favicon_144x144_path       : ''
 guac_branding_logo_image_url             : ''
 guac_branding_logo_image_path            : ''
 guac_branding_logo_width                 : '50px'
