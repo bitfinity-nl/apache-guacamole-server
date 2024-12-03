@@ -1,6 +1,15 @@
 ---
-
-
+# Title: Apache Guacamole Server
+#
+# Author: Bitfinity / L. Rutten
+# Owner: Bitfinity / L. Rutten
+#
+# File: tasks/dockers/2404/00-maintenance.yml
+#
+# Description:
+#   Apache Guacamole is a clientless remote desktop gateway.
+#   It supports standard protocols like VNC, RDP, and SSH.
+# 
 - name: "Check if docker container 'guacamole' is running on host '{{ ansible_host }}'" 
   ansible.builtin.shell: if [ -n "$(docker ps -f "name=^/guacamole$" -f "status=running" -q )" ]; then echo "running"; fi
   register: result_status_container
