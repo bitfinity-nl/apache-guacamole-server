@@ -18,7 +18,7 @@
   community.docker.docker_container:
     name: guacamole
     state: stopped
-  when: result_status_container.stdout == 'running'
+  when: result_status_container.stdout == "running"
 
 - name: "Prune everything (including non-dangling images) on host '{{ ansible_host }}'"
   community.docker.docker_prune:
@@ -29,4 +29,4 @@
     networks: true
     volumes: true
     builder_cache: true
-  when: result_status_container.stdout == 'running'
+  when: result_status_container.stdout == "running"
