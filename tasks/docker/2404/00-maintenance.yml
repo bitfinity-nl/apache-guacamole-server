@@ -20,7 +20,7 @@
     state: stopped
   when: result_status_container == 'running'
 
-- name: "Prune everything (including non-dangling images)""
+- name: "Prune everything (including non-dangling images)"
   community.docker.docker_prune:
     containers: true
     images: true
