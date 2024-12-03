@@ -1,0 +1,23 @@
+---
+
+
+- name: "Check if docker container 'guacamole' is running on host '{{ ansible_host }}'" 
+  ansible.builtin.shell: if [ -n "$(docker ps -f "name=^/guacamole$" -f "status=running" -q )" ]; then echo "running"; fi
+  register: result_status_container
+
+- name: "Stop docker container 'guacamole'"
+  community.docker.docker_container:
+    name: guacamole
+    state: stopped
+  when: result_status_container == 'running'
+
+- name: "Prune everything (including non-dangling images)""
+  community.docker.docker_prune:
+    containers: true
+    images: true
+    images_filters:
+      dangling: false
+    networks: true
+    volumes: true
+    builder_cache: true
+  when: result_status_container == 'running'
