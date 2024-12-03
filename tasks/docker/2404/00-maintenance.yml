@@ -14,13 +14,13 @@
   ansible.builtin.raw: if [ -n "$(docker ps -f "name=^/guacamole$" -f "status=running" -q )" ]; then echo "running"; fi
   register: result_status_container
 
-- name: "Stop docker container 'guacamole'"
+- name: "Stop docker container 'guacamole' on host '{{ ansible_host }}'"
   community.docker.docker_container:
     name: guacamole
     state: stopped
   when: result_status_container.stdout == 'running'
 
-- name: "Prune everything (including non-dangling images)"
+- name: "Prune everything (including non-dangling images) on host '{{ ansible_host }}'"
   community.docker.docker_prune:
     containers: true
     images: true
